@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style media="screen">
+    .postbox {
+      background-color: #006699;
+      margin: 5px;
+      margin-left: 260px;
+      padding: 10px;
+      line-height: 18px;
+      font-size: 14px;
+
+    }
+    .backbox {
+      background-color: #022e64;
+      margin: 5px;
+      padding: 10px;
+
+    }
+    .replybox {
+      background-color: #006699;
+      margin: 7px;
+      margin-left: 360px;
+      padding: 10px;
+      line-height: 15px;
+      font-size: 14px;
+      width: auto;
+    }
+
+      body {
+  background-color: #01152e ;
+}
+    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %} {% endblock %}
+  </head>
+
+    <body>
+
+        {% block body %} {% endblock %}
+        {% block script %}{% endblock %}
+    </body>
+
+</html>

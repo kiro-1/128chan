@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Mkr</title>
+{% endblock %}
+
+
+
+{% block body %}
+<center>
+<font color="white">
+
+<a href="/pol">/pol</a>
+<a href="/ran">/ran</a>
+<a href="/tec">/tec</a>
+<a href="/mkr">/mkr</a>
+<h1>Market</h1>
+<font color="black">
+</center>
+<form action="/upload" method="GET">
+    <input type="submit" value="Make a Post"
+         name="Submit" id="frm1_submit" />
+</form
+
+<br>
+
+
+
+
+
+{% for chan in chan %}
+{% if chan.Board == "mkr" %}
+  <div class="backbox">
+    <img style="float: left; margin-right: 15px" src="static/img/uploads/{{chan.image_file}}" allign="left" width="240" >
+    <div class="postbox">
+      <h2>{{ chan.title }}</h2>
+      <b>{{ chan.author }}</b>
+      <p>{{ chan.content }}</p>
+    </div>
+
+
+{%for chanreply in chanreply %}
+{%if chanreply.postid == chan.id %}
+{%if chanreply.Board == "mkr"%}
+<div class="replybox">
+<b>{{ chanreply.title }}</b>
+<small>{{ chanreply.author }}</small>
+<small>ID:{{ chanreply.id }}</small>
+<small>POST ID:{{ chanreply.postid }}</small>
+<small>Board ID:{{ chanreply.Board }}</small>
+<p>{{ chanreply.content }}</p>
+</div>
+      {% endif %}
+            {% endif %}
+          {% endfor %}
+
+
+    <form action='/mkr' method='POST'>
+      <div class="replybox">
+        Reply: <input type='text'name='title' value="Title:" id='title'>
+        <input type='text' name='author' value="Author:"id='author'>
+        <input type='text' name='content' value="Content:"id='content'>
+        <input type='submit' value='Post'>
+
+        {% set chan_val = chan.id %}
+        {{ chan_val }}
+        <input type="hidden" name="chan_val" value={{chan_val}} id="chan_val">
+        <input type="hidden" name="Board_id" value="mkr" id="Board_id">
+
+        </div>
+
+      </form>
+
+    </div>
+    <br>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

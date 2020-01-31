@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Upload</title>
+{% endblock %}
+
+{% block body %}
+<font color="white">
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Upload</h1>
+      <hr>
+
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class=form-group">
+          <label>Select Image</label>
+          <div class="custom-file">
+            <input oninput="filesize(this);"type="file" class="custom-file-input" name="image" id="image">
+
+          </div>
+
+        </div>
+
+
+            <input type='text'name='title' value="Title:" id='title'>
+            <input type='text' name='author' value="Author:"id='author'>
+            <input type='text' name='content' value="Content:"id='content'>
+
+            <input type="radio" name="Board" value="pol" checked>pol
+            <input type="radio" name="Board" value="mkr">mkr
+            <input type="radio" name="Board" value="ran">ran
+            <input type="radio" name="Board" value="tec">tec
+
+            <input type='submit' name="button" value='Post'>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+<br>
+<hr>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

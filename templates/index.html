@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<center>
+<font color="white">
+
+<a href="/pol">/pol</a>
+<a href="/ran">/ran</a>
+<a href="/tec">/tec</a>
+<a href="/mkr">/mkr</a>
+<h1>Welcome</h1>
+<font color="black">
+
+<form action="/upload" method="GET">
+    <input type="submit" value="Make a Post"
+         name="Submit" id="frm1_submit" />
+</form
+<br>
+</center>
+{% endblock %}
